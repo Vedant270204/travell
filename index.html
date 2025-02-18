@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Layout</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0; 
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 180px auto;
+            grid-template-rows: 60px auto 80px;
+            height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: #c6e2a9;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            grid-column: span 2;
+            padding: 10px;
+        }
+
+        .header button {
+            background: #5b8a3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background: #98c379;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+            background: #b5e08b;
+            border-radius: 5px;
+            text-align: center;
+            display: block;
+        }
+
+        .sidebar a.active {
+            background: black;
+            color: white;
+        }
+        .sidebar a:hover {
+            background: #3e6b2a;
+            color: white;
+        }
+        /* Main Content */
+        .main {
+            background: #eaf3d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            background: #27408b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        button.book-now {
+            background: orange;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #27408b;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px;
+            gap: 10px;
+            grid-column: span 2;
+        }
+
+        .footer img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .footer-box {
+            width: 40px;
+            height: 40px;
+            background: white;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+       
+            .search-bar {
+                background-color: #283c1a;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 10px 0;
+            }
+        
+            .search-bar input {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px 0 0 5px;
+                outline: none;
+            }
+        
+            .search-bar button {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-left: none;
+                background: #5b8a3c;
+                color: white;
+                border-radius: 0 5px 5px 0;
+                cursor: pointer;
+            }
+.logo{
+    position: absolute;
+    height: 60px;
+    width: 60px;
+   
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content1 a:hover {
+    background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content1 {
+    display: block;
+}
+            
+        
+
+    </style>
+</head>
+
+<head>
+    <style>
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .header {
+            animation: slideIn 1s ease-out;
+        }
+
+        .sidebar {
+            animation: slideIn 1s ease-out;
+            animation-delay: 0.5s;
+        }
+
+        .main {
+            animation: slideIn 1s ease-out;
+            animation-delay: 1s;
+        }
+
+        .footer {
+            animation: slideIn 1s ease-out;
+            animation-delay: 1.5s;
+        }
+    </style>
+</head>
+<body>
+   
+   
+    <div class="search-bar">       
+        <input type="text" placeholder="Search...">
+        <button>Go</button>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="dropdown">
+                <button>Button1</button>
+                <div class="dropdown-content">
+                    <a href="#">Option 1</a>
+                    <a href="#">Option 2</a>
+                    <a href="#">Option 3</a>
+                </div>
+            
+           
+            <button>Button2</button>
+            <div class="dropdown-content1">
+                <a href="#">Option 1</a>
+                <a href="#">Option 2</a>
+                <a href="#">Option 3</a>
+            </div> 
+            <button>Button3</button>
+            <button>Button4</button>
+            <button>Button5</button>
+            </div>
+        </header>
+
+        <!-- Left Sidebar -->
+        <nav class="sidebar">
+            <a href="https://www.google.com/search?q=hotel+booking&oq=hotel+booking&gs_lcrp=EgZjaHJvbWUqBwgAEAAYjwIyBwgAEAAYjwIyDAgBECMYJxiABBiKBTIMCAIQIxgnGIAEGIoFMg0IAxAAGJECGIAEGIoFMhMIBBAuGIMBGMcBGLEDGNEDGIAEMg0IBRAAGIMBGLEDGIAEMg0IBhAAGIMBGLEDGIAEMg0IBxAAGIMBGLEDGIAEMg0ICBAAGIMBGLEDGIAEMg0ICRAAGIMBGLEDGIAE0gEINDgyMGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8" target="_blank">Hotels</a>
+            <a href="https://www.google.com/search?q=trip+booking&sca_esv=664f7e6c30f8a07c&sxsrf=AHTn8zpBKx0tUm3ckt9Yb1lcAQqP1U0YhQ%3A1738732459467&ei=q_OiZ-6dHMC94-EP3or2uAs&ved=0ahUKEwiun-yU46uLAxXA3jgGHV6FHbcQ4dUDCBA&uact=5&oq=trip+booking&gs_lp=Egxnd3Mtd2l6LXNlcnAiDHRyaXAgYm9va2luZzILEAAYgAQYkQIYigUyBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgUQABiABDIGEAAYBxgeMgYQABgHGB4yBRAAGIAESKkYUI0DWNITcAF4AZABAJgB6wKgAf4TqgEFMi01LjS4AQPIAQD4AQGYAgOgAogEwgIKEAAYsAMY1gQYR8ICDRAAGIAEGLADGEMYigXCAhkQLhiABBiwAxjRAxhDGMcBGMgDGIoF2AEBwgIKECMYgAQYJxiKBcICDRAAGIAEGLEDGEMYigXCAg0QABiABBixAxgUGIcCwgIIEAAYgAQYsQPCAhAQLhiABBjRAxhDGMcBGIoFmAMAiAYBkAYMugYECAEYCJIHBTEuMC4yoAfxPg&sclient=gws-wiz-serp" target="_blank">Trips</a>
+            <a href="https://www.google.com/search?q=flight+booking&sca_esv=664f7e6c30f8a07c&sxsrf=AHTn8zpuz45fraOc3IIsF20-2fkneqC6BA%3A1738732517667&ei=5fOiZ-a1KJDx4-EPpMqBkAY&oq=flite+booking&gs_lp=Egxnd3Mtd2l6LXNlcnAiDWZsaXRlIGJvb2tpbmcqAggAMg4QABiABBiRAhixAxiKBTIOEAAYgAQYkQIYsQMYigUyDhAAGIAEGJECGLEDGIoFMhEQABiABBiRAhixAxiDARiKBTIKEAAYgAQYsQMYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCki6L1CqA1jaFHABeAGQAQCYAewCoAGmEaoBBzAuMS43LjG4AQPIAQD4AQGYAgegApELwgIKEAAYsAMY1gQYR8ICDRAAGIAEGLADGEMYigXCAhkQLhiABBiwAxjRAxhDGMcBGMgDGIoF2AEBwgIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAcICBhAAGAcYHsICChAjGIAEGCcYigXCAgsQABiABBiRAhiKBcICDRAAGIAEGLEDGBQYhwLCAg0QABiABBixAxhDGIoFwgIKEAAYgAQYQxiKBcICChAAGIAEGLEDGA3CAgcQABiABBgNwgINEAAYgAQYsQMYgwEYDZgDAIgGAZAGE7oGBggBEAEYCJIHBTEuMS41oAe3Pg&sclient=gws-wiz-serp" target="_blank">Flights</a>
+            <a href="https://www.google.com/search?q=trains+booking&sca_esv=664f7e6c30f8a07c&sxsrf=AHTn8zpgwJySo1-05xqgTTdkK5y7Rv8JdQ%3A1738732576244&ei=IPSiZ9zIDuqK4-EPz_HNmAw&ved=0ahUKEwjc2MPM46uLAxVqxTgGHc94E8MQ4dUDCBA&uact=5&oq=trains+booking&gs_lp=Egxnd3Mtd2l6LXNlcnAiDnRyYWlucyBib29raW5nMgoQABiABBgUGIcCMgYQABgHGB4yBRAAGIAEMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB5IliJQnANYshhwAXgBkAEAmAGLBaABwimqAQczLTUuMS41uAEDyAEA-AEBmAIDoAKXCMICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIZEC4YgAQYsAMY0QMYQxjHARjIAxiKBdgBAcICChAjGIAEGCcYigXCAg0QABiABBixAxhDGIoFwgINEAAYgAQYsQMYFBiHAsICChAAGIAEGEMYigWYAwCIBgGQBhS6BgYIARABGAiSBwkxLjMtMS4wLjGgB-dL&sclient=gws-wiz-serp" target="_blank">Trains</a>
+            <a href="https://www.google.com/search?q=bus+booking&sca_esv=664f7e6c30f8a07c&sxsrf=AHTn8zoIiKKJ_eti7zy1WpVirUnR5imdVg%3A1738732631896&ei=V_SiZ9K7Nt2z4-EPpPHp6AM&ved=0ahUKEwiSw4jn46uLAxXd2TgGHaR4Gj0Q4dUDCBA&uact=5&oq=bus+booking&gs_lp=Egxnd3Mtd2l6LXNlcnAiC2J1cyBib29raW5nMgQQABhHMgQQABhHMgQQABhHMgQQABhHMgQQABhHMgQQABhHMgQQABhHMgQQABhHSN4KUMYBWMYBcAF4ApABAJgBAKABAKoBALgBA8gBAPgBAZgCAqACDMICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIWEC4YsAMY0QMY1gQYRxjHARjIA9gBAcICGRAuGIAEGLADGNEDGEMYxwEYyAMYigXYAQGYAwDiAwUSATEgQIgGAZAGCLoGBggBEAEYCJIHATKgBwA&sclient=gws-wiz-serp" target="_blank">Bus</a>
+            <a href="https://www.google.com/search?q=resort+booking&sca_esv=664f7e6c30f8a07c&sxsrf=AHTn8zr4Y_CNygO9s51cpwOjIniljG4psg%3A1738732643137&ei=Y_SiZ6yJCMrG4-EPmKHZ2AM&ved=0ahUKEwjsxrbs46uLAxVK4zgGHZhQFjsQ4dUDCBA&uact=5&oq=resort+booking&gs_lp=Egxnd3Mtd2l6LXNlcnAiDnJlc29ydCBib29raW5nMgoQABiABBgUGIcCMgsQABiABBiRAhiKBTILEAAYgAQYkQIYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESPMrUI8DWJEhcAF4AZABAJgBsgKgAZYXqgEFMi05LjK4AQPIAQD4AQGYAgWgAokIwgIKEAAYsAMY1gQYR8ICDRAAGIAEGLADGEMYigXCAhYQLhiwAxjRAxjWBBhHGMcBGMgD2AEBwgIZEC4YgAQYsAMY0QMYQxjHARjIAxiKBdgBAcICChAjGIAEGCcYigXCAgoQABiABBhDGIoFwgINEAAYgAQYsQMYFBiHAsICDRAAGIAEGLEDGEMYigXCAgYQABgHGB7CAgcQABiABBgNmAMAiAYBkAYSugYGCAEQARgIkgcFMS4wLjSgB7RB&sclient=gws-wiz-serp" target="_blank">Resort</a>
+            <a href="https://www.google.com/search?q=movie+booking&sca_esv=664f7e6c30f8a07c&sxsrf=AHTn8zqXIJro7IzwSGhjlmYJWXKfxAtSLw%3A1738732664066&ei=ePSiZ87VA4qE4-EP2ZiBqAY&ved=0ahUKEwjO8bP246uLAxUKwjgGHVlMAGUQ4dUDCBA&uact=5&oq=movie+booking&gs_lp=Egxnd3Mtd2l6LXNlcnAiDW1vdmllIGJvb2tpbmcyBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yDhAAGIAEGJECGLEDGIoFSKEkUPMCWPQfcAF4AZABAJgBowKgAesWqgEEMi0xMbgBA8gBAPgBAZgCCKACpA_CAgoQABiwAxjWBBhHwgIOEAAYgAQYsAMYkgMYigXCAhAQABiABBiwAxhDGMkDGIoFwgIZEC4YgAQYsAMY0QMYQxjHARjIAxiKBdgBAcICChAjGIAEGCcYigXCAgsQABiABBiRAhiKBcICDRAAGIAEGLEDGEMYigXCAg0QABiABBixAxgUGIcCmAMAiAYBkAYMugYECAEYCJIHBTEuMC43oAeFUA&sclient=gws-wiz-serp" target="_blank">Movies</a>
+            <a href="https://www.google.com/search?q=turf+booking&sca_esv=664f7e6c30f8a07c&sxsrf=AHTn8zpvq232UL60mz24z2LV_D7q99NS9A%3A1738732687744&ei=j_SiZ5mKLdqJ4-EP7IqDyAE&ved=0ahUKEwjZjdmB5KuLAxXaxDgGHWzFABkQ4dUDCBA&uact=5&oq=turf+booking&gs_lp=Egxnd3Mtd2l6LXNlcnAiDHR1cmYgYm9va2luZzIKEAAYgAQYFBiHAjIKEAAYgAQYQxiKBTIFEAAYgAQyBRAAGIAEMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIFEAAYgARI6CFQwAhYpRpwAXgBkAEAmAG_AqABthOqAQUyLTguMbgBA8gBAPgBAZgCBKAC1QbCAgoQABiwAxjWBBhHwgIQEAAYgAQYsAMYQxjJAxiKBcICDhAAGIAEGLADGJIDGIoFwgINEAAYgAQYsAMYQxiKBcICGRAuGIAEGLADGNEDGEMYxwEYyAMYigXYAQHCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIWEC4YgAQYsAMYQxjUAhjIAxiKBdgBAcICChAjGIAEGCcYigXCAgsQABiABBiRAhiKBZgDAIgGAZAGFLoGBggBEAEYCJIHBTEuMC4zoAfNOw&sclient=gws-wiz-serp" target="_blank">Turf</a>
+            <a href="https://www.google.com/search?q=shows+booking&sca_esv=664f7e6c30f8a07c&sxsrf=AHTn8zoJb5caw3lB6d0YR3tTFrhF6w2MiQ%3A1738732707115&ei=o_SiZ6jYBs2Z4-EPterEwAo&ved=0ahUKEwjotfeK5KuLAxXNzDgGHTU1EagQ4dUDCBA&uact=5&oq=shows+booking&gs_lp=Egxnd3Mtd2l6LXNlcnAiDXNob3dzIGJvb2tpbmcyBhAAGAcYHjIGEAAYBxgeMgUQABiABDIGEAAYBRgeMgYQABgFGB4yBhAAGAUYHjIGEAAYBRgeMgYQABgFGB4yBhAAGAUYHjIKEAAYBRgHGAoYHkizGVD9AlikFHABeAGQAQCYAcQCoAHqEqoBBTItOC4xuAEDyAEA-AEBmAIGoAK9CsICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIKECMYgAQYJxiKBcICCxAAGIAEGJECGIoFwgIKEAAYgAQYQxiKBcICBxAAGIAEGA2YAwCIBgGQBgqSBwcxLjAuNC4xoAf_Nw&sclient=gws-wiz-serp" target="_blank">Shows</a>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main">
+           
+            <div class="grid-container">
+                <div class="card"> Packages <button class="book-now">Click Now</button></div>
+                <div class="card">Affordable     Pricing    <button class="book-now">Click Now</button></div>
+                <div class="card">Expert  Guidance  <button class="book-now">Click Now</button></div>
+                <div class="card">Exclusive    Deals  <button class="book-now">Click Now</button></div>
+                <div class="card"> Price Guarantee <button class="book-now">Click Now</button></div>
+                <div class="card">Multiple  Options    <button class="book-now">Click Now</button></div>
+                <div class="card"> Fast Booking  <button class="book-now">Click Now</button></div>
+                <div class="card">Advance Booking <button class="book-now">Click Now</button></div>
+                <div class="card"> Surprise Previews <button class="book-now">Click Now</button></div>
+                <div class="card">Shows Booking <button class="book-now">Click Now</button></div>
+                <div class="card">Good Features <button class="book-now">Click Now</button></div>
+                <div class="card">Wallet Integration <button class="book-now">Click Now</button></div>
+                <div class="card">Memberships <button class="book-now">Click Now</button></div> 
+                <div class="card">Travel Insurance <button class="book-now">Click Now</button></div>
+                <div class="card"> Customer Care   <button class="book-now">Click Now</button></div>
+               
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="https://www.instagram.com" class="footer-box"><img src="insta.jpeg" alt="Instagram"></a>
+            <a href="https://www.facebook.com" class="footer-box"><img src="facebook.png" alt="Facebook"></a>
+            <a href="https://in.linkedin.com/" class="footer-box"><img src="linkdin.png" alt="linkdin"></a>
+        </footer>
+            <img src="download.png" class="logo" alt="website logo">
+            <div class="dropdown">
+                <button>Button1</button>
+                <div class="dropdown-content"></div>
+            <style>
+                button:hover {
+                    background-color: #384426;
+                }
+            </style>
+    </div>
+</body>
+</html>
+
